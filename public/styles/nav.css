@@ -1,0 +1,16 @@
+nav {
+  height: 120px;
+  width: 100vw;
+  color: white;
+  background-color: #000cf5;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+nav #main-logo {
+  font-family: 'Bungee', cursive;
+  font-size: 35px;
+}
