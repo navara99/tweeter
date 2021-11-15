@@ -1,0 +1,31 @@
+.new-tweet footer {
+  font-family: "Bungee", cursive;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+
+.new-tweet footer button {
+  color: white;
+  background-color:  #000cf5;
+  border: none;
+}
+
+#compose-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#compose-form label {
+  font-style: italic;
+}
+
+#tweet-text {
+  margin-top: 0.5em;
+  height: 2em;
+  background-color: inherit;
+  border-color:  #000000;
+  border-width: 0 0 1px 0 ;
+  outline: none;
+  resize: none;
+}
