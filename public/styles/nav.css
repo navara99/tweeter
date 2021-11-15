@@ -1,4 +1,6 @@
 nav {
+  position: fixed;
+  top:0;
   height: 120px;
   width: 100vw;
   color: white;
@@ -17,4 +19,8 @@ nav #main-logo {
 
 nav #new-tweet-wrapper {
   text-align: center;
+}
+
+#offset-nav {
+  height: 120px;
 }
