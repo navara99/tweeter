@@ -12,12 +12,12 @@ nav {
   z-index: 1;
 }
 
-nav #main-logo {
+#main-logo {
   font-family: 'Bungee', cursive;
   font-size: 35px;
 }
 
-nav #new-tweet-wrapper {
+#new-tweet-wrapper {
   text-align: center;
 }
 
