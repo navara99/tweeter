@@ -29,20 +29,20 @@ $(document).ready(function () {
     return article;
   }
 
-  const clearErrorMessage = () => $(".error").html("");
+  const clearErrorMessage = () => $(".error-message").html("");
 
   const removeError = () => {
     clearErrorMessage();
-    $(".error").slideUp();
-  }
+    $(".error-wrapper").slideUp();
+  };
 
   const showError = (text) => {
     clearErrorMessage();
     const errorIcon = ["exclamation-triangle"];
-    const $icon = generateIcons(errorIcon);
     const $errMessage = $("<div>").text(text);
 
-    $(".error").append($icon, $errMessage, $icon).slideDown();
+    $(".error-message").append(generateIcons(errorIcon),$errMessage,generateIcons(errorIcon)).css("display", "flex");
+    $(".error-wrapper").slideDown();
   };
 
   const renderTweets = (data) => {
@@ -53,7 +53,7 @@ $(document).ready(function () {
 
   const getTweets = () => {
     $.get("http://localhost:8080/tweets").then((data) => renderTweets(data));
-  }
+  };
 
   const postTweet = (data) => {
     $.post("http://localhost:8080/tweets", data).then(() => getTweets());
@@ -63,8 +63,8 @@ $(document).ready(function () {
     e.preventDefault();
     const input = $("#tweet-text");
 
-    if (!input.val()) return showError("Tweet cannot be empty!");
-    if (input.val().length > 140) return showError("This tweet is too long! Keep it under 140 characters.");
+    if (!input.val()) return showError("Tweet cannot be empty.");
+    if (input.val().length > 140) return showError("Tweets must be 140 character or under.");
 
     // Valid tweet
     removeError();
