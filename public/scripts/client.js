@@ -84,6 +84,35 @@ $(document).ready(function () {
   $(".compose").hover(handleMouseEnter, handleMouseExit);
   $(".compose").click(handleComposeClick);
 
+
+  const handleScroll = () => {
+    const $window = $(window);
+    const scrollLevel = $window.scrollTop();
+
+    // If at the top, show the compose and hide the up btn
+    if (!scrollLevel) {
+      $(".up-btn").fadeOut(200);
+      $(".compose").fadeIn(200);
+      return;
+    }
+
+    // Otherwise, hide the compose and show the up btn
+
+    $(".up-btn").fadeIn(200);
+    $(".compose").fadeOut(200);
+  };
+
+  const handleUpBtnClick = () => {
+    const $newTweet = $("#new-tweet");
+    const $tweetText = $("#tweet-text");
+    $newTweet.slideDown();
+    $tweetText.focus();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  }
+
+  $(window).scroll(handleScroll)
+  $(".up-btn").click(handleUpBtnClick);
+
   $("#compose-form").submit(tweetSubmitHandler);
   getTweets();
 });
