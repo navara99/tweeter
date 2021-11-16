@@ -41,7 +41,7 @@ $(document).ready(function () {
     const errorIcon = ["exclamation-triangle"];
     const $errMessage = $("<div>").text(text);
 
-    $(".error-message").append(generateIcons(errorIcon),$errMessage,generateIcons(errorIcon)).css("display", "flex");
+    $(".error-message").append(generateIcons(errorIcon), $errMessage, generateIcons(errorIcon)).css("display", "flex");
     $(".error-wrapper").slideDown();
   };
 
@@ -73,6 +73,16 @@ $(document).ready(function () {
     input.val("");
     $(".counter").text(140);
   };
+
+  const handleMouseEnter = () => $(".compose").children("i").addClass("up-down-animation");
+  const handleMouseExit = () => $(".compose").children("i").removeClass("up-down-animation");
+
+  const handleComposeClick = () => {
+    $("#new-tweet").slideToggle();
+  };
+
+  $(".compose").hover(handleMouseEnter, handleMouseExit);
+  $(".compose").click(handleComposeClick);
 
   $("#compose-form").submit(tweetSubmitHandler);
   getTweets();
