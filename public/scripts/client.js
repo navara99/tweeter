@@ -77,13 +77,18 @@ $(document).ready(function () {
   const handleMouseEnter = () => $(".compose").children("i").addClass("up-down-animation");
   const handleMouseExit = () => $(".compose").children("i").removeClass("up-down-animation");
 
+  const focusForm = () => {
+    const $tweetText = $("#tweet-text");
+    $tweetText.focus();
+  }
+
   const handleComposeClick = () => {
     $("#new-tweet").slideToggle();
+    focusForm();
   };
 
   $(".compose").hover(handleMouseEnter, handleMouseExit);
   $(".compose").click(handleComposeClick);
-
 
   const handleScroll = () => {
     const $window = $(window);
@@ -104,9 +109,8 @@ $(document).ready(function () {
 
   const handleUpBtnClick = () => {
     const $newTweet = $("#new-tweet");
-    const $tweetText = $("#tweet-text");
     $newTweet.slideDown();
-    $tweetText.focus();
+    focusForm();
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
 
