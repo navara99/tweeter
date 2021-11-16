@@ -23,6 +23,7 @@
 .tweet header + div {
   font-weight: 600;
   padding: 1.5em;
+  word-wrap: break-word;
 }
 
 .tweet header img {
