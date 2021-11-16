@@ -33,3 +33,11 @@
 .invalid {
   color: red;
 }
+
+.error {
+  padding: 0 0.5em;
+  height: 2em;
+  margin-top: 1em;
+  border: 3px solid red;
+  width: 100%;
+}

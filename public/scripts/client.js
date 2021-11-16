@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
-  const generateIcons = () => {
-    const icons = ["flag", "retweet", "heart"];
+  const generateIcons = (icons) => {
     const iconElems = icons.map((icon) => $("<i>").addClass(`fas fa-${icon}`));
     return iconElems;
   }
 
   const createTweetElement = (tweet) => {
     const { user, content, created_at } = tweet;
+    const icons = ["flag", "retweet", "heart"];
 
     // Create the header
     const $image = $("<img>").attr("src", user.avatars);
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     // Create footer
     const $timeAgo = $("<div>").text(timeago.format(created_at));
-    const $icons = $("<div>").html(generateIcons());
+    const $icons = $("<div>").html(generateIcons(icons));
     const $footer = $("<footer>").append($timeAgo, $icons);
 
     // Create article
@@ -28,6 +28,22 @@ $(document).ready(function () {
 
     return article;
   }
+
+  const clearErrorMessage = () => $(".error").html("");
+
+  const removeError = () => {
+    clearErrorMessage();
+    $(".error").slideUp();
+  }
+
+  const showError = (text) => {
+    clearErrorMessage();
+    const errorIcon = ["exclamation-triangle"];
+    const $icon = generateIcons(errorIcon);
+    const $errMessage = $("<div>").text(text);
+
+    $(".error").append($icon, $errMessage, $icon).slideDown();
+  };
 
   const renderTweets = (data) => {
     $(".tweets").html("");
@@ -47,9 +63,11 @@ $(document).ready(function () {
     e.preventDefault();
     const input = $("#tweet-text");
 
-    if (!input.val()) return alert("Tweet cannot be empty!");
-    if (input.val().length > 140) return alert("This tweet is too long! Keep it under 140 characters.");
+    if (!input.val()) return showError("Tweet cannot be empty!");
+    if (input.val().length > 140) return showError("This tweet is too long! Keep it under 140 characters.");
 
+    // Valid tweet
+    removeError();
     const queryString = $(this).serialize();
     postTweet(queryString);
     input.val("");
