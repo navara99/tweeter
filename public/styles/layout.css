@@ -37,7 +37,7 @@ body {
   display: none;
 }
 
-#up-btn {
+.up-btn {
   position: fixed;
   bottom: 1em;
   right: 1em;
@@ -51,11 +51,11 @@ body {
   transition: background-color 0.1s ;
 }
 
-#up-btn:hover {
+.up-btn:hover {
   background-color: #8b0000;
 }
 
-#up-btn i {
+.up-btn i {
   font-size: 2em;
   color:white;
 }
