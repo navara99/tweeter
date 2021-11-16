@@ -30,12 +30,12 @@ $(document).ready(function () {
   }
 
   const renderTweets = (data) => {
+    $(".tweets").html("");
     const tweetsDisplay = data.reverse().map(tweet => createTweetElement(tweet));
     $(".tweets").append(tweetsDisplay);
   };
 
   const getTweets = () => {
-    $(".tweets").html("");
     $.get("http://localhost:8080/tweets").then((data) => renderTweets(data));
   }
 
