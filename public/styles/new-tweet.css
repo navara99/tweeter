@@ -1,11 +1,16 @@
-.new-tweet footer {
+#new-tweet {
+  display: none;
+}
+
+#new-tweet footer {
   font-family: "Bungee", cursive;
   display: flex;
   justify-content: space-between;
   padding-top: 1em;
 }
 
-.new-tweet footer button {
+#new-tweet footer button {
+  cursor: pointer;
   color: white;
   background-color:  #000cf5;
   border: none;
