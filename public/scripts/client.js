@@ -4,6 +4,31 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1636849528442
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
+    },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1636935928442
+  }
+]
+
 $(document).ready(function () {
 
   const generateIcons = () => {
@@ -19,7 +44,7 @@ $(document).ready(function () {
     const $image = $("<img>").attr("src", user.avatars);
     const $name = $("<div>").text(user.name);
     const $tweeterHandle = $("<div>").text(user.handle);
-    const $header = $("<header>").append($image,$name,$tweeterHandle);
+    const $header = $("<header>").append($image, $name, $tweeterHandle);
 
     // Create the text
     const $text = $("<div>").text(content.text);
@@ -35,19 +60,12 @@ $(document).ready(function () {
     return article;
   }
 
-  const tweet = {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1636935928442
+  const renderTweets = (data) => {
+    const tweetsDisplay = data.map(tweet => createTweetElement(tweet));
+    $(".container").append(tweetsDisplay);
   };
 
-  $(".container").append(createTweetElement(tweet));
+  renderTweets(data);
 
 });
 
