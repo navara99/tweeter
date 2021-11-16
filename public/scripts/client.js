@@ -30,11 +30,12 @@ $(document).ready(function () {
   }
 
   const renderTweets = (data) => {
-    const tweetsDisplay = data.map(tweet => createTweetElement(tweet));
-    $(".container").append(tweetsDisplay);
+    const tweetsDisplay = data.reverse().map(tweet => createTweetElement(tweet));
+    $(".tweets").append(tweetsDisplay);
   };
 
   const getTweets = () => {
+    $(".tweets").html("");
     $.get("http://localhost:8080/tweets").then((data) => renderTweets(data));
   }
 
@@ -44,10 +45,18 @@ $(document).ready(function () {
 
   function tweetSubmitHandler(e) {
     e.preventDefault();
+    const input = $("#tweet-text");
+
+    if (!input.val()) return alert("Tweet cannot be empty!");
+    if (input.val().length > 140) return alert("This tweet is too long! Keep it under 140 characters.");
+
     const queryString = $(this).serialize();
     postTweet(queryString);
+    input.val("");
+    $(".counter").text(140);
   };
 
   $("#compose-form").submit(tweetSubmitHandler);
+  getTweets();
 });
 
