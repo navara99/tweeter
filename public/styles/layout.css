@@ -36,3 +36,26 @@ body {
 .hidden {
   display: none;
 }
+
+#up-btn {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  background-color: red;
+  box-shadow: none;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.1s ;
+}
+
+#up-btn:hover {
+  background-color: #8b0000;
+}
+
+#up-btn i {
+  font-size: 2em;
+  color:white;
+}
