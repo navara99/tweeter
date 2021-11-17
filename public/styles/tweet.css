@@ -45,6 +45,9 @@
 }
 
 .tweet footer i {
+  font-size: 1.25em;
+  cursor: pointer;
+  padding: 0.25em;
   color:#000cf5;
   transition: color 0.2s;
 }
