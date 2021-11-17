@@ -2,6 +2,8 @@
   border: 3px solid black;
   margin: 1em 0;
   padding: 1em;
+  box-shadow: none;
+  transition: box-shadow 0.4s;
 }
 
 .tweet:hover {
