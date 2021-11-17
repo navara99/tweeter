@@ -38,11 +38,12 @@ $(document).ready(function () {
     $(".error-wrapper").slideDown();
   };
 
-   /***************************************Tweet submission handlers***************************************/
+  /***************************************Tweet submission handlers***************************************/
 
+  // Create one single tweet article from a tweet object
   const createTweetElement = (tweet) => {
     const { user, content, created_at } = tweet;
-    
+
     // Create the header
     const $image = $("<img>").attr("src", user.avatars);
     const $name = $("<div>").text(user.name);
@@ -64,32 +65,37 @@ $(document).ready(function () {
   }
 
   const renderTweets = (data) => {
-    $(".tweets").html("");
+    $(".tweets").html(""); // Clear the text field once submission is successful
+
+    // Create an article for each tweet object recieved from api
     const tweetsDisplay = data.reverse().map(tweet => createTweetElement(tweet));
-    $(".tweets").append(tweetsDisplay);
+    $(".tweets").append(tweetsDisplay); // Display tweets on screen
   };
 
+  // Fetch all tweets from endpoint
   const getTweets = () => {
     $.get(endPoint).then((data) => renderTweets(data));
   };
 
+  // Post user tweet to the endpoint
   const postTweet = (data) => {
     $.post(endPoint, data).then(() => getTweets());
   };
 
+  // If the tweet is valid, make the post request, otherwise show error
   function tweetSubmitHandler(e) {
     e.preventDefault();
-    const input = $("#tweet-text");
+    const input = $(this).children("#tweet-text");
 
-    if (!input.val()) return showError(emptyTweet);
-    if (input.val().length > 140) return showError(tooLong);
+    if (!input.val()) return showError(emptyTweet); // Check for empty tweet form
+    if (input.val().length > 140) return showError(tooLong); // Check for tweet with more than 140 chars
 
     // Valid tweet
     removeError();
     const queryString = $(this).serialize();
     postTweet(queryString);
-    input.val("");
-    $(".counter").text(140);
+    input.val(""); // Clear textfield
+    $(this).children("footer").children(".counter").text(140); // Reset char counter to 140
   };
 
   $("#compose-form").submit(tweetSubmitHandler);
@@ -141,6 +147,8 @@ $(document).ready(function () {
 
   // Up btn will scroll all the way up on click
   $(".up-btn").click(handleUpBtnClick);
+
+  /***************************************Fetch tweets on visit***************************************/
 
   getTweets();
 });
