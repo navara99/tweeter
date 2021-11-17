@@ -1,7 +1,25 @@
 $(document).ready(function () {
 
-  /***************************************General Purpose Functions***************************************/
+  /***************************************General Purpose Functions/constants***************************************/
 
+  // Error messages
+  const tooLong = "Tweets must be 140 character or under.";
+  const emptyTweet = "Tweet cannot be empty.";
+
+  // PORT number
+  const PORT = 8080;
+
+  // API endpoint for tweet POST and GET requests
+  const endPoint = `http://localhost:${PORT}/tweets`;
+
+  // Generate fontawesome icons from an array
+  const generateIcons = (icons) => {
+    const iconElems = icons.map((icon) => $("<i>").addClass(`fas fa-${icon}`));
+    return iconElems;
+  }
+
+  const footerIcons = ["flag", "retweet", "heart"]; // Array of icons used in tweet footer
+  const errorIcon = ["exclamation-triangle"]; // Icon used in error messages
 
   /***************************************Error handlers***************************************/
 
@@ -14,22 +32,17 @@ $(document).ready(function () {
 
   const showError = (text) => {
     clearErrorMessage(); // Clear the message in the error
-    const errorIcon = ["exclamation-triangle"];
     const $errMessage = $("<div>").text(text);
 
     $(".error-message").append(generateIcons(errorIcon), $errMessage, generateIcons(errorIcon)).css("display", "flex");
     $(".error-wrapper").slideDown();
   };
 
-  const generateIcons = (icons) => {
-    const iconElems = icons.map((icon) => $("<i>").addClass(`fas fa-${icon}`));
-    return iconElems;
-  }
+   /***************************************Tweet submission handlers***************************************/
 
   const createTweetElement = (tweet) => {
     const { user, content, created_at } = tweet;
-    const icons = ["flag", "retweet", "heart"];
-
+    
     // Create the header
     const $image = $("<img>").attr("src", user.avatars);
     const $name = $("<div>").text(user.name);
@@ -41,10 +54,10 @@ $(document).ready(function () {
 
     // Create footer
     const $timeAgo = $("<div>").text(timeago.format(created_at));
-    const $icons = $("<div>").html(generateIcons(icons));
+    const $icons = $("<div>").html(generateIcons(footerIcons));
     const $footer = $("<footer>").append($timeAgo, $icons);
 
-    // Create article
+    // Create article and append the header,text and footer
     const article = $("<article>").append($header, $text, $footer).addClass("tweet");
 
     return article;
@@ -57,19 +70,19 @@ $(document).ready(function () {
   };
 
   const getTweets = () => {
-    $.get("http://localhost:8080/tweets").then((data) => renderTweets(data));
+    $.get(endPoint).then((data) => renderTweets(data));
   };
 
   const postTweet = (data) => {
-    $.post("http://localhost:8080/tweets", data).then(() => getTweets());
+    $.post(endPoint, data).then(() => getTweets());
   };
 
   function tweetSubmitHandler(e) {
     e.preventDefault();
     const input = $("#tweet-text");
 
-    if (!input.val()) return showError("Tweet cannot be empty.");
-    if (input.val().length > 140) return showError("Tweets must be 140 character or under.");
+    if (!input.val()) return showError(emptyTweet);
+    if (input.val().length > 140) return showError(tooLong);
 
     // Valid tweet
     removeError();
@@ -86,7 +99,7 @@ $(document).ready(function () {
   const focusForm = () => {
     const $tweetText = $("#tweet-text");
     $tweetText.focus(); // Set cursor to textfield
-  }
+  };
 
   const handleComposeClick = () => {
     $("#new-tweet").slideToggle();
