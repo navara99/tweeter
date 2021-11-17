@@ -74,9 +74,6 @@ $(document).ready(function () {
     $(".counter").text(140);
   };
 
-  const handleMouseEnter = () => $(".compose").children("i").addClass("up-down-animation");
-  const handleMouseExit = () => $(".compose").children("i").removeClass("up-down-animation");
-
   const focusForm = () => {
     const $tweetText = $("#tweet-text");
     $tweetText.focus();
