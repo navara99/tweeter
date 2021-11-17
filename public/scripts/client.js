@@ -108,6 +108,7 @@ $(document).ready(function () {
   };
 
   const handleComposeClick = () => {
+    removeError();
     $("#new-tweet").slideToggle();
     focusForm();
   };
