@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/media-queries.css" type="text/css" />
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -38,38 +39,39 @@
       <i class="fas fa-angle-double-down"></i>
     </div>
   </nav>
-  <div id="offset-nav"></div>
-  <header id="main-header">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <h2>Your Name</h2>
-    </div>
-  </header>
 
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <div class="error-wrapper hidden invalid">
-      <div class="error-message"></i></div>
-    </div>
-    <section id="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form method="POST" action="/tweets" id="compose-form">
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-        <footer>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </footer>
-      </form>
-    </section>
-    <section class="tweets"></section>
-    <button class="up-btn hidden">
-      <i class="fas fa-angle-double-up"></i>
-    </button>
-  </main>
+    <div id="offset-nav"></div>
+    <header id="main-header">
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <br>
+      <div>
+        <h2>Your Name</h2>
+      </div>
+    </header>
+
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <div class="error-wrapper hidden invalid">
+        <div class="error-message"></i></div>
+      </div>
+      <section id="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets" id="compose-form">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <footer>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </footer>
+        </form>
+      </section>
+      <section class="tweets"></section>
+      <button class="up-btn hidden">
+        <i class="fas fa-angle-double-up"></i>
+      </button>
+    </main>
   <!-- App JS -->
   <script src="scripts/composer-char-counter.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>
