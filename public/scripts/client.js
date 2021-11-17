@@ -1,5 +1,26 @@
 $(document).ready(function () {
 
+  /***************************************General Purpose Functions***************************************/
+
+
+  /***************************************Error handlers***************************************/
+
+  const clearErrorMessage = () => $(".error-message").html("");
+
+  const removeError = () => {
+    clearErrorMessage();
+    $(".error-wrapper").slideUp(); // Hide error message from view
+  };
+
+  const showError = (text) => {
+    clearErrorMessage(); // Clear the message in the error
+    const errorIcon = ["exclamation-triangle"];
+    const $errMessage = $("<div>").text(text);
+
+    $(".error-message").append(generateIcons(errorIcon), $errMessage, generateIcons(errorIcon)).css("display", "flex");
+    $(".error-wrapper").slideDown();
+  };
+
   const generateIcons = (icons) => {
     const iconElems = icons.map((icon) => $("<i>").addClass(`fas fa-${icon}`));
     return iconElems;
@@ -28,22 +49,6 @@ $(document).ready(function () {
 
     return article;
   }
-
-  const clearErrorMessage = () => $(".error-message").html("");
-
-  const removeError = () => {
-    clearErrorMessage();
-    $(".error-wrapper").slideUp();
-  };
-
-  const showError = (text) => {
-    clearErrorMessage();
-    const errorIcon = ["exclamation-triangle"];
-    const $errMessage = $("<div>").text(text);
-
-    $(".error-message").append(generateIcons(errorIcon), $errMessage, generateIcons(errorIcon)).css("display", "flex");
-    $(".error-wrapper").slideDown();
-  };
 
   const renderTweets = (data) => {
     $(".tweets").html("");
@@ -74,9 +79,13 @@ $(document).ready(function () {
     $(".counter").text(140);
   };
 
+  $("#compose-form").submit(tweetSubmitHandler);
+
+  /***************************************Form toggle events***************************************/
+
   const focusForm = () => {
     const $tweetText = $("#tweet-text");
-    $tweetText.focus();
+    $tweetText.focus(); // Set cursor to textfield
   }
 
   const handleComposeClick = () => {
@@ -84,8 +93,7 @@ $(document).ready(function () {
     focusForm();
   };
 
-  $("#compose-form").submit(tweetSubmitHandler);
-  $(".compose").click(handleComposeClick);
+  $(".compose").click(handleComposeClick); // Open/close from from view
 
   /***************************************Scrolling events***************************************/
 
@@ -117,7 +125,7 @@ $(document).ready(function () {
     focusForm();
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
-  
+
   // Up btn will scroll all the way up on click
   $(".up-btn").click(handleUpBtnClick);
 
