@@ -84,12 +84,14 @@ $(document).ready(function () {
     focusForm();
   };
 
-  $(".compose").hover(handleMouseEnter, handleMouseExit);
+  $("#compose-form").submit(tweetSubmitHandler);
   $(".compose").click(handleComposeClick);
 
-  const handleScroll = () => {
-    const $window = $(window);
-    const scrollLevel = $window.scrollTop();
+  /***************************************Scrolling events***************************************/
+
+  const handleScroll = function () {
+    const $target = $(this); // this can be either the container or window, depending on screen size
+    const scrollLevel = $target.scrollTop();
 
     // If at the top, show the compose and hide the up btn
     if (!scrollLevel) {
@@ -104,17 +106,21 @@ $(document).ready(function () {
     $(".compose").fadeOut(200);
   };
 
+  // Adding scroll event handler for both view layouts
+
+  $(".container").scroll(handleScroll) // Screen width below 1024px
+  $(window).scroll(handleScroll) // Screen width above 1024px
+
   const handleUpBtnClick = () => {
     const $newTweet = $("#new-tweet");
     $newTweet.slideDown();
     focusForm();
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
-
-  $(window).scroll(handleScroll)
+  
+  // Up btn will scroll all the way up on click
   $(".up-btn").click(handleUpBtnClick);
 
-  $("#compose-form").submit(tweetSubmitHandler);
   getTweets();
 });
 
