@@ -1,0 +1,12 @@
+$primary: #549400;
+$secondary: #ffbb46;
+$darksecondary: #ffa200;
+$white: #FFFFFF;
+$background:#f4f1ec;
+$black: #000000;
+$muted: #c0c0c0;
+$error:#ff3333;
+
+@mixin boxShadow() {
+  box-shadow: 4px 4px #549400ad;
+}
