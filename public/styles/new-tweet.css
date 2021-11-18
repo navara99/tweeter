@@ -10,12 +10,12 @@
 #new-tweet footer button {
   cursor: pointer;
   color: white;
-  background-color: #549400;
+  background-color: #006bde;
   border: none;
   transition: background-color 0.2s;
 }
 #new-tweet footer button:hover {
-  background-color: #477e00;
+  background-color: #003bcf;
 }
 
 #compose-form {

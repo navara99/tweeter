@@ -6,8 +6,8 @@
   height: 400px;
   width: 100%;
   color: #FFFFFF;
-  background-color: #ffbb46;
-  background-image: url("../images/3px-tile.png");
+  background-color: #fcb500;
+  background-image: url("../images/back-pattern.png");
 }
 #main-header h2 {
   margin: 0;

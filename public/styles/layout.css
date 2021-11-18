@@ -32,14 +32,14 @@ body {
   height: 3em;
   width: 3em;
   border-radius: 50%;
-  background-color: #ffbb46;
+  background-color: #fcb500;
   box-shadow: none;
   border: 0;
   cursor: pointer;
   transition: background-color 0.1s;
 }
 .up-btn:hover {
-  background-color: #ffa200;
+  background-color: #e4a300;
 }
 .up-btn i {
   font-size: 2em;
