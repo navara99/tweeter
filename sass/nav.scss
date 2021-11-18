@@ -1,6 +1,6 @@
 nav {
   position: fixed;
-  top: 0;
+  top:0;
   height: 120px;
   width: 100vw;
   color: white;
@@ -17,7 +17,7 @@ nav {
 }
 
 #main-logo {
-  font-family: "Bungee", cursive;
+  font-family: 'Bungee', cursive;
   font-size: 35px;
 }
 
@@ -31,13 +31,14 @@ nav {
 }
 
 .up-down-animation {
-  animation: upAndDown 0.6s linear infinite alternate;
+  animation: upAndDown 0.6s linear infinite alternate ;
 }
 
 @keyframes upAndDown {
   from {
     transform: translateY(0%);
   }
+
   to {
     transform: translateY(10%);
   }

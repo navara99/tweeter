@@ -1,9 +1,10 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px ) {
   body {
     font-size: 18px;
   }
 }
-@media only screen and (min-width: 1024px) {
+
+@media only screen and (min-width: 1024px ) {
   body {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -16,7 +17,7 @@
 
   #main-header {
     grid-column: 1/2;
-    grid-row: 2/3;
+    grid-row:2/3;
     height: calc(100vh - 120px);
   }
 
@@ -24,8 +25,11 @@
     margin: auto;
     padding: 0.5em 2em 2em 2em;
     width: 100%;
-    grid-row: 2/3;
+    grid-row: 2 / 3;
     height: calc(100vh - 120px);
     overflow-y: scroll;
   }
+
 }
+
+

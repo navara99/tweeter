@@ -7,7 +7,7 @@
 }
 
 .tweet:hover {
-  box-shadow: 4px 4px #000cf575;
+  box-shadow:  4px 4px #000cf575;
 }
 
 .tweet header {
@@ -50,10 +50,15 @@
   font-size: 1.25em;
   cursor: pointer;
   padding: 0.25em;
-  color: #000cf5;
+  color:#000cf5;
   transition: color 0.2s;
 }
 
 .tweet footer div:first-of-type {
   font-weight: 600;
 }
+
+
+
+
+
