@@ -117,6 +117,10 @@ $(document).ready(function () {
 
   /***************************************Scrolling events***************************************/
 
+  const animateScroll = ($container)=> {
+    $container.animate({ scrollTop: 0 }, 1200, "linear", ()=> focusForm()); // Scroll up and then focus on textfield
+  }
+
   const handleScroll = function () {
     const $target = $(this); // this can be either the container or window, depending on screen size
     const scrollLevel = $target.scrollTop();
@@ -142,8 +146,8 @@ $(document).ready(function () {
   const handleUpBtnClick = () => {
     const $newTweet = $("#new-tweet");
     $newTweet.slideDown();
-    focusForm();
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+    const $scrollContainer = $(window).width() < 1024 ? $("html, body") : $(".container")
+    animateScroll($scrollContainer);
   }
 
   // Up btn will scroll all the way up on click
