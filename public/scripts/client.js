@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
   /***************************************General Purpose Functions/constants***************************************/
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
   const generateIcons = (icons) => {
     const iconElems = icons.map((icon) => $("<i>").addClass(`fas fa-${icon}`));
     return iconElems;
-  }
+  };
 
   const footerIcons = ["flag", "retweet", "heart"]; // Array of icons used in tweet footer
   const errorIcon = ["exclamation-triangle"]; // Icon used in error messages
@@ -62,7 +62,7 @@ $(document).ready(function () {
     const article = $("<article>").append($header, $text, $footer).addClass("tweet");
 
     return article;
-  }
+  };
 
   const renderTweets = (data) => {
     $(".tweets").html(""); // Clear the text field once submission is successful
@@ -96,7 +96,7 @@ $(document).ready(function () {
     postTweet(queryString);
     input.val(""); // Clear textfield
     $(this).children("footer").children(".counter").text(140); // Reset char counter to 140
-  };
+  }
 
   $("#compose-form").submit(tweetSubmitHandler);
 
@@ -119,9 +119,9 @@ $(document).ready(function () {
 
   const animateScroll = ($container)=> {
     $container.animate({ scrollTop: 0 }, 1200, "linear", ()=> focusForm()); // Scroll up and then focus on textfield
-  }
+  };
 
-  const handleScroll = function () {
+  const handleScroll = function() {
     const $target = $(this); // this can be either the container or window, depending on screen size
     const scrollLevel = $target.scrollTop();
 
@@ -140,15 +140,15 @@ $(document).ready(function () {
 
   // Adding scroll event handler for both view layouts
 
-  $(".container").scroll(handleScroll) // Screen width below 1024px
-  $(window).scroll(handleScroll) // Screen width above 1024px
+  $(".container").scroll(handleScroll); // Screen width below 1024px
+  $(window).scroll(handleScroll); // Screen width above 1024px
 
   const handleUpBtnClick = () => {
     const $newTweet = $("#new-tweet");
     $newTweet.slideDown();
-    const $scrollContainer = $(window).width() < 1024 ? $("html, body") : $(".container")
+    const $scrollContainer = $(window).width() < 1024 ? $("html, body") : $(".container");
     animateScroll($scrollContainer);
-  }
+  };
 
   // Up btn will scroll all the way up on click
   $(".up-btn").click(handleUpBtnClick);
