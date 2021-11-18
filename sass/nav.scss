@@ -1,4 +1,5 @@
 @use "colorway";
+@use "fonts";
 
 nav {
   position: fixed;
@@ -19,7 +20,7 @@ nav {
 }
 
 #main-logo {
-  font-family: 'Bungee', cursive;
+  font-family: fonts.$secondary;
   font-size: 35px;
 }
 

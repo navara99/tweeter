@@ -1,4 +1,5 @@
 @use "colorway";
+@use "fonts";
 
 html {
   box-sizing: border-box;
@@ -11,7 +12,7 @@ body {
   color: colorway.$black;
   background-color: colorway.$background;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: fonts.$primary;
   display: flex;
   flex-direction: column;
   align-items: center;

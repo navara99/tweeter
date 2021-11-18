@@ -1,10 +1,11 @@
 @use "colorway";
+@use "fonts";
 
 #new-tweet {
   display: none;
 
   footer {
-    font-family: "Bungee", cursive;
+    font-family: fonts.$secondary;
     display: flex;
     justify-content: space-between;
     padding-top: 1em;
