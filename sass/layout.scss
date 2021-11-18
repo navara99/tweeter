@@ -1,5 +1,6 @@
 @use "colorway";
 @use "fonts";
+@use "layouts";
 
 html {
   box-sizing: border-box;
@@ -13,10 +14,7 @@ body {
   background-color: colorway.$background;
   font-size: 24px;
   font-family: fonts.$primary;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include layouts.flex-column-center();
 }
 
 .container {

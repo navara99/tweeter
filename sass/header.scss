@@ -1,11 +1,9 @@
 @use "colorway";
+@use "layouts";
 
 #main-header {
+  @include layouts.flex-column-center();
   height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   color: colorway.$white;
   background-color: colorway.$secondary;
