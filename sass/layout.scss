@@ -1,3 +1,5 @@
+@use "colorway";
+
 html {
   box-sizing: border-box;
 }
@@ -6,8 +8,8 @@ html {
 }
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: colorway.$black;
+  background-color: colorway.$background;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;
@@ -31,14 +33,14 @@ body {
   height: 3em;
   width: 3em;
   border-radius: 50%;
-  background-color: red;
+  background-color: colorway.$secondary;
   box-shadow: none;
   border: 0;
   cursor: pointer;
   transition: background-color 0.1s ;
 
   &:hover {
-    background-color: #8b0000;
+    background-color: colorway.$darksecondary;
   }
 
   i {

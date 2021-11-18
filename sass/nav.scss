@@ -1,10 +1,12 @@
+@use "colorway";
+
 nav {
   position: fixed;
   top:0;
   height: 120px;
   width: 100vw;
-  color: white;
-  background-color: orange;
+  color: colorway.$white;
+  background-color: colorway.$primary;
   padding: 0 1.5em;
   display: flex;
   justify-content: space-between;

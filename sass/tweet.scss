@@ -1,12 +1,14 @@
+@use "colorway";
+
 .tweet {
-  border: 3px solid black;
+  border: 3px solid colorway.$black;
   margin: 1em 0;
   padding: 1em;
   box-shadow: none;
   transition: box-shadow 0.4s;
 
   &:hover {
-    box-shadow: 4px 4px #000cf575;
+    @include colorway.boxShadow();
   }
 
   header {
@@ -29,7 +31,7 @@
     div {
       &:last-of-type {
         margin-left: auto;
-        color: #c0c0c0;
+        color: colorway.$muted;
       }
     }
   }
@@ -38,7 +40,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 3px solid black;
+    border-top: 3px solid colorway.$muted;
     padding: 0.5em;
     font-size: 16px;
 
@@ -46,11 +48,11 @@
       font-size: 1.25em;
       cursor: pointer;
       padding: 0.25em;
-      color: #000cf5;
+      color: colorway.$primary;
       transition: color 0.2s;
 
       &:hover {
-        color: #549400;
+        color: colorway.$secondary;
       }
     }
 

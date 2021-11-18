@@ -1,3 +1,5 @@
+@use "colorway";
+
 #new-tweet {
   display: none;
 
@@ -10,7 +12,7 @@
     button {
       cursor: pointer;
       color: white;
-      background-color:  #000cf5;
+      background-color: colorway.$primary;
       border: none;
     }
   }
@@ -30,21 +32,21 @@
   margin-top: 0.5em;
   height: 2em;
   background-color: inherit;
-  border-color:  #000000;
+  border-color:  colorway.$black;
   border-width: 0 0 1px 0 ;
   outline: none;
   resize: none;
 }
 
 .invalid {
-  color: red;
+  color: colorway.$error;
 }
 
 .error-wrapper {
   padding: 0 0.5em;
   height: 2em;
   margin-top: 1em;
-  border: 3px solid red;
+  border: 3px solid colorway.$error;
   width: 100%;
 }
 
