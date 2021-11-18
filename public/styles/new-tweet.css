@@ -10,7 +10,7 @@
 #new-tweet footer button {
   cursor: pointer;
   color: white;
-  background-color: #000cf5;
+  background-color: #549400;
   border: none;
 }
 
@@ -33,14 +33,14 @@
 }
 
 .invalid {
-  color: red;
+  color: #ff3333;
 }
 
 .error-wrapper {
   padding: 0 0.5em;
   height: 2em;
   margin-top: 1em;
-  border: 3px solid red;
+  border: 3px solid #ff3333;
   width: 100%;
 }
 

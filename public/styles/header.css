@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  color: white;
-  background-color: #549400;
+  color: #FFFFFF;
+  background-color: #ffbb46;
   background-image: url("../images/3px-tile.png");
 }
 #main-header h2 {

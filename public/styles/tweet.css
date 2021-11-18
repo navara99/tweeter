@@ -1,12 +1,12 @@
 .tweet {
-  border: 3px solid black;
+  border: 3px solid #000000;
   margin: 1em 0;
   padding: 1em;
   box-shadow: none;
   transition: box-shadow 0.4s;
 }
 .tweet:hover {
-  box-shadow: 4px 4px #000cf575;
+  box-shadow: 4px 4px #549400ad;
 }
 .tweet header {
   display: flex;
@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 3px solid black;
+  border-top: 3px solid #c0c0c0;
   padding: 0.5em;
   font-size: 16px;
 }
@@ -39,11 +39,11 @@
   font-size: 1.25em;
   cursor: pointer;
   padding: 0.25em;
-  color: #000cf5;
+  color: #549400;
   transition: color 0.2s;
 }
 .tweet footer i:hover {
-  color: #549400;
+  color: #ffbb46;
 }
 .tweet footer div:first-of-type {
   font-weight: 600;
